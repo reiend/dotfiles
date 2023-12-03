@@ -325,14 +325,14 @@ require('lazy').setup {
   {
     'saadparwaiz1/cmp_luasnip',
   },
-  {
-    'roobert/tailwindcss-colorizer-cmp.nvim',
-    config = function()
-      require('tailwindcss-colorizer-cmp').setup {
-        color_square_width = 2,
-      }
-    end,
-  },
+  -- {
+  --   'roobert/tailwindcss-colorizer-cmp.nvim',
+  --   config = function()
+  --     require('tailwindcss-colorizer-cmp').setup {
+  --       color_square_width = 2,
+  --     }
+  --   end,
+  -- },
   {
     'hrsh7th/nvim-cmp',
     config = function()
@@ -946,12 +946,12 @@ require('lazy').setup {
       require('git-conflict').setup()
     end,
   },
-  {
-    'norcalli/nvim-colorizer.lua',
-    config = function()
-      require('colorizer').setup()
-    end,
-  },
+  -- {
+  --   'norcalli/nvim-colorizer.lua',
+  --   config = function()
+  --     require('colorizer').setup()
+  --   end,
+  -- },
   {
     'iamcco/markdown-preview.nvim',
     cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
