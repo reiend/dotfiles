@@ -15,6 +15,7 @@ return function(lsp_config)
       },
       settings = {
         rootMarkers = { '.git/' },
+        lintDebounce = '1s',
         languages = {
           lua = {
             luacheck,
@@ -27,7 +28,7 @@ return function(lsp_config)
           cpp = {
             {
               prefix = 'clang-tidy',
-              lintCommand = 'clang-tidy ${INPUT}',
+              lintCommand = 'clang-tidy ${INPUT} -p build',
               lintStdin = false,
               lintIgnoreExitCode = true,
               lintFormats = {
