@@ -85,3 +85,4 @@ keymap(
   [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
   { desc = 'Multicursor replace word' }
 )
+

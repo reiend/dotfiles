@@ -26,11 +26,10 @@ local options = {
   laststatus = 3,
   scrolloff = 8,
   clipboard = 'unnamedplus',
-  -- colorcolumn = "80"
+  colorcolumn = "80"
 }
 
 -- use options
 for key2, value2 in pairs(options) do
   vim.opt[key2] = value2
 end
-
