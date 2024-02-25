@@ -20,6 +20,34 @@ return function(lsp_config)
             luacheck,
             require 'efmls-configs.formatters.stylua',
           },
+          -- cpp = {
+          --   require 'efmls-configs.linters.clang_tidy',
+          --   require 'efmls-configs.formatters.clang_format',
+          -- },
+          cpp = {
+            {
+              prefix = 'clang-tidy',
+              lintCommand = 'clang-tidy ${INPUT}',
+              lintStdin = false,
+              lintIgnoreExitCode = true,
+              lintFormats = {
+                '%f:%l:%c: %trror: %m',
+                '%f:%l:%c: %tarning: %m',
+                '%f:%l:%c: %tote: %m',
+              },
+              rootMarkers = { '.clang-tidy' },
+            },
+            {
+              -- linter
+              prefix = 'clang-format',
+              formatCommand = 'clang-format ${INPUT}',
+              formatCanRange = false,
+              formatStdin = false,
+              rootMarkers = {
+                '.clang-format',
+              },
+            },
+          },
         },
       },
     }
