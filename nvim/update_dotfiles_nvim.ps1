@@ -1,6 +1,6 @@
 function Update-Neovim {
   try {
-    Remove-Item "$env:USERPROFILE\Downloads\devs\dotfiles\nvim" -Recurse
+    Remove-Item "$env:USERPROFILE\Downloads\devs\dotfiles\nvim" -Recurse -Force
     Copy-Item -Path "$env:LOCALAPPDATA\nvim" -Destination "$env:USERPROFILE\Downloads\devs\dotfiles\nvim" -Recurse
   } catch {
     Copy-Item -Path "$env:LOCALAPPDATA\nvim" -Destination "$env:USERPROFILE\Downloads\devs\dotfiles\nvim" -Recurse
