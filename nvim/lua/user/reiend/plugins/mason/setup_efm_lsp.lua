@@ -43,7 +43,7 @@ return function(lsp_config)
               prefix = 'clang-format',
               formatCommand = 'clang-format ${INPUT}',
               formatCanRange = false,
-              formatStdin = false,
+              formatStdin = true,
               rootMarkers = {
                 '.clang-format',
               },
