@@ -3,6 +3,7 @@ local path = 'user.reiend.plugins.mason'
 local module = {
   setup_efm_lsp = require(path .. '.setup_efm_lsp'),
   setup_lua_lsp = require(path .. '.setup_lua_lsp'),
+  setup_clangd_lsp = require(path .. '.setup_clangd_lsp'),
 }
 
 module.setup_cmp = function()
@@ -145,6 +146,7 @@ module.setup_mason_lsp = function(lsp_config, capabilities)
       end,
       ['lua_ls'] = module.setup_lua_lsp(lsp_config),
       ['efm'] = module.setup_efm_lsp(lsp_config),
+      ['clangd'] = module.setup_clangd_lsp(lsp_config),
     },
   }
 
@@ -215,4 +217,3 @@ return {
     module.setup_mason_lsp(require 'lspconfig', module.get_cmp_capabilities())
   end,
 }
-
