@@ -207,6 +207,12 @@ require("lazy").setup({
   require "user.reiend.plugins.treesitter",
   require "user.reiend.plugins.comment",
   require "user.reiend.plugins.fidget",
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require('gitsigns').setup()
+    end
+  },
   -- {
   --   "mfussenegger/nvim-lint",
   --   config = function()
