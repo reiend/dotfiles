@@ -38,7 +38,6 @@ module.setup_cmp = function()
       { name = 'luasnip' }, -- For luasnip users.
       -- { name = 'ultisnips' }, -- For ultisnips users.
       -- { name = 'snippy' }, -- For snippy users.
-    }, {
       { name = 'buffer' },
     }),
   }
@@ -49,7 +48,6 @@ module.setup_cmp = function()
       -- You can specify the `git` source if [you were installed it]
       -- (https://github.com/petertriho/cmp-git).
       { name = 'git' },
-    }, {
       { name = 'buffer' },
     }),
   })
@@ -132,6 +130,7 @@ module.setup_mason = function()
   require('mason').setup()
 end
 
+
 module.setup_mason_lsp = function(lsp_config, capabilities)
   require('mason-lspconfig').setup {
     ensure_installed = { 'lua_ls' },
@@ -153,6 +152,14 @@ module.setup_mason_lsp = function(lsp_config, capabilities)
   -- Global mappings.
   -- See `:help vim.diagnostic.*` for documentation on any of the
   -- below functions
+  vim.diagnostic.config {
+    virtual_text = true,
+    float = {
+      header = false,
+      border = 'rounded',
+      focusable = true,
+    },
+  }
   vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
   vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
   vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
@@ -217,3 +224,4 @@ return {
     module.setup_mason_lsp(require 'lspconfig', module.get_cmp_capabilities())
   end,
 }
+
