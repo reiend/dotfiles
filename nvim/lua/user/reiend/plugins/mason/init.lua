@@ -32,24 +32,24 @@ module.setup_cmp = function()
       -- only confirm explicitly selected items.
       ['<CR>'] = cmp.mapping.confirm { select = true },
     },
-    sources = cmp.config.sources({
+    sources = cmp.config.sources {
       { name = 'nvim_lsp' },
       -- { name = 'vsnip' }, -- For vsnip users.
       { name = 'luasnip' }, -- For luasnip users.
       -- { name = 'ultisnips' }, -- For ultisnips users.
       -- { name = 'snippy' }, -- For snippy users.
       { name = 'buffer' },
-    }),
+    },
   }
 
   -- Set configuration for specific filetype.
   cmp.setup.filetype('gitcommit', {
-    sources = cmp.config.sources({
+    sources = cmp.config.sources {
       -- You can specify the `git` source if [you were installed it]
       -- (https://github.com/petertriho/cmp-git).
       { name = 'git' },
       { name = 'buffer' },
-    }),
+    },
   })
 
   -- Use buffer source for `/` and `?`
@@ -130,7 +130,6 @@ module.setup_mason = function()
   require('mason').setup()
 end
 
-
 module.setup_mason_lsp = function(lsp_config, capabilities)
   require('mason-lspconfig').setup {
     ensure_installed = { 'lua_ls' },
@@ -172,6 +171,12 @@ module.setup_mason_lsp = function(lsp_config, capabilities)
     callback = function(ev)
       -- Enable completion triggered by <c-x><c-o>
       vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+      vim.lsp.handlers['textDocument/hover'] =
+        vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
+
+      vim.lsp.handlers['textDocument/signatureHelp'] =
+        vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
 
       -- Buffer local mappings.
       -- See `:help vim.lsp.*` for documentation on any of the below functions

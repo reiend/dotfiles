@@ -15,7 +15,7 @@ return function(lsp_config)
       },
       settings = {
         rootMarkers = { '.git/' },
-        lintDebounce = '1s',
+        lintDebounce = '0.3s',
         languages = {
           lua = {
             luacheck,
