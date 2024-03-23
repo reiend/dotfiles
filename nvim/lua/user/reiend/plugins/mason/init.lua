@@ -222,8 +222,163 @@ return {
     'L3MON4D3/LuaSnip',
     'saadparwaiz1/cmp_luasnip',
     'creativenull/efmls-configs-nvim',
+    'rcarriga/nvim-dap-ui',
+    'mfussenegger/nvim-dap',
+    'nvim-neotest/nvim-nio',
+    'folke/neodev.nvim',
   },
   config = function()
+    require('neodev').setup {
+      library = {
+        -- when not enabled, neodev will not change any settings to
+        -- the LSP server
+        -- these settings will be used for your Neovim config directory
+        enabled = true,
+
+        -- runtime path
+        runtime = true,
+
+        -- full signature, docs and completion of vim.api, vim.treesitter,
+        -- vim.lsp and others
+        types = true,
+
+        -- installed opt or start plugins in packpath
+        -- you can also specify the list of plugins to make available as
+        -- a workspace library
+        -- plugins = { "nvim-treesitter", "plenary.nvim", "telescope.nvim" },
+        plugins = { 'nvim-dap-ui' },
+      },
+
+      -- configures jsonls to provide completion for project specific
+      -- .luarc.json files
+      setup_jsonls = true,
+
+      -- for your Neovim config directory, the config.library settings
+      -- will be used as is
+      -- for plugin directories (root_dirs having a /lua directory),
+      -- config.library.plugins will be disabled
+      -- for any other directory, config.library.enabled will be set to false
+
+      -- override = function(_root_dir, _options) end,
+
+      -- With lspconfig, Neodev will automatically setup your
+      -- lua-language-server
+
+      -- If you disable this, then you have to set
+      -- {before_init=require("neodev.lsp").before_init}
+
+      -- in your lsp start options
+      lspconfig = true,
+
+      -- much faster, but needs a recent built of lua-language-server
+      -- needs lua-language-server >= 3.6.0
+      pathStrict = true,
+    }
+
+    local dap = require 'dap'
+    dap.adapters.lldb = {
+      type = 'executable',
+
+      -- adjust as needed, must be absolute path
+      command = 'lldb-vscode',
+      name = 'lldb',
+    }
+
+    dap.configurations.cpp = {
+      {
+        name = 'Launch',
+        type = 'lldb',
+        request = 'launch',
+        program = function()
+          return vim.fn.input(
+            'Path to executable: ',
+            vim.fn.getcwd() .. '/',
+            'file'
+          )
+        end,
+        cwd = '${workspaceFolder}',
+        stopOnEntry = false,
+        args = {},
+
+        -- 💀
+        -- if you change `runInTerminal` to true, you might need to change
+        -- the yama/ptrace_scope setting:
+        --
+        --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+        --
+        -- Otherwise you might get the following error:
+        --
+        --    Error on launch: Failed to attach to the target process
+        --
+        -- But you should be aware of the implications:
+        -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
+        -- runInTerminal = false,
+      },
+    }
+
+    vim.keymap.set('n', '<F5>', function()
+      require('dap').continue()
+    end)
+    vim.keymap.set('n', '<F10>', function()
+      require('dap').step_over()
+    end)
+    vim.keymap.set('n', '<F11>', function()
+      require('dap').step_into()
+    end)
+    vim.keymap.set('n', '<F12>', function()
+      require('dap').step_out()
+    end)
+    vim.keymap.set('n', '<Leader>b', function()
+      require('dap').toggle_breakpoint()
+    end)
+    vim.keymap.set('n', '<Leader>B', function()
+      require('dap').set_breakpoint()
+    end)
+    vim.keymap.set('n', '<Leader>lp', function()
+      require('dap').set_breakpoint(
+        nil,
+        nil,
+        vim.fn.input 'Log point message: '
+      )
+    end)
+    vim.keymap.set('n', '<Leader>dr', function()
+      require('dap').repl.open()
+    end)
+    vim.keymap.set('n', '<Leader>dl', function()
+      require('dap').run_last()
+    end)
+    vim.keymap.set({ 'n', 'v' }, '<Leader>dh', function()
+      require('dap.ui.widgets').hover()
+    end)
+    vim.keymap.set({ 'n', 'v' }, '<Leader>dp', function()
+      require('dap.ui.widgets').preview()
+    end)
+    vim.keymap.set('n', '<Leader>df', function()
+      local widgets = require 'dap.ui.widgets'
+      widgets.centered_float(widgets.frames)
+    end)
+    vim.keymap.set('n', '<Leader>ds', function()
+      local widgets = require 'dap.ui.widgets'
+      widgets.centered_float(widgets.scopes)
+    end)
+
+    local dapui = require('dapui')
+
+    dapui.setup();
+
+    dap.listeners.before.attach.dapui_config = function()
+      dapui.open()
+    end
+    dap.listeners.before.launch.dapui_config = function()
+      dapui.open()
+    end
+    dap.listeners.before.event_terminated.dapui_config = function()
+      dapui.close()
+    end
+    dap.listeners.before.event_exited.dapui_config = function()
+      dapui.close()
+    end
+
     module.setup_cmp()
     module.setup_mason()
     module.setup_mason_lsp(require 'lspconfig', module.get_cmp_capabilities())
