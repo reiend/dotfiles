@@ -1,8 +1,14 @@
 function Show-Step() {
+	param (
+		$message = "installation - in progress"
+	)
+
+	Start-Sleep -Seconds 0.5
 	clear
+	Write-Host $message
 	$step.Value++
-	echo "Step $($step.value)/$($end.value) - Processing"
-	Start-Sleep -Seconds 1
+	echo "Step $($step.value)/$($end.value)"
+	Start-Sleep -Seconds 0.5
 }
 
 function Show-Finish() {
@@ -11,6 +17,7 @@ function Show-Finish() {
 	echo "Finish"
 
 	Read-Host -Prompt "Press any key to continue"
+	clear
 }
 
 function Start-Action {

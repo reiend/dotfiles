@@ -7,6 +7,7 @@ function Get-Scoop() {
 
 		scoop bucket add main
 		scoop bucket add extras
+		scoop bucket add nerd-fonts
 	}
 
 }
