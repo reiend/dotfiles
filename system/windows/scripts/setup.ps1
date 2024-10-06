@@ -1,3 +1,5 @@
+. ".\scoop.ps1"
+. ".\git.ps1"
 . ".\nodejs.ps1"
 . ".\mingw.ps1"
 . ".\llvm.ps1"
@@ -12,7 +14,13 @@ function Start-Setup() {
 
 	$isYesToAllChoices = [Ref]$false;
 	$step = [Ref]0;
-	$end = [Ref]3;
+	$end = [Ref]5;
+
+	Show-Step
+	Start-Action -action Get-Scoop -title "Scoop" -question "Installing scoop"
+
+	Show-Step
+	Start-Action -action Get-Git -title "Git" -question "Installing git"
 	
 	Show-Step
 	Start-Action -action Get-NodeJs -title "NodeJs" -question "Do you want to install nodejs?"
