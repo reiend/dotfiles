@@ -1,9 +1,9 @@
-. ".\scoop.ps1"
-. ".\git.ps1"
-. ".\nodejs.ps1"
-. ".\mingw.ps1"
-. ".\llvm.ps1"
-. ".\utils.ps1"
+. "$($PSScriptRoot).\scoop.ps1"
+. "$($PSScriptRoot).\git.ps1"
+. "$($PSScriptRoot).\nodejs.ps1"
+. "$($PSScriptRoot).\mingw.ps1"
+. "$($PSScriptRoot).\llvm.ps1"
+. "$($PSScriptRoot).\utils.ps1"
 
 
 
@@ -17,19 +17,19 @@ function Start-Setup() {
 	$end = [Ref]5;
 
 	Show-Step
-	Start-Action -action Get-Scoop -title "Scoop" -question "Installing scoop"
+	Start-Action -action Get-Scoop -title "Scoop" -message "Installing scoop"
 
-	Show-Step
-	Start-Action -action Get-Git -title "Git" -question "Installing git"
-	
-	Show-Step
-	Start-Action -action Get-NodeJs -title "NodeJs" -question "Do you want to install nodejs?"
-
-	Show-Step
-	Start-Action -action Get-Mingw -title "Mingw" -question "Do you want to install mingw?"
-	
-	Show-Step
-	Start-Action -action Get-Llvm -title "Llvm" -question "Do you want to install llvm?"
+	#Show-Step
+	#Start-Action -action Get-Git -title "Git" -message "Installing git"
+	#
+	#Show-Step
+	#Start-Action -action Get-NodeJs -title "NodeJs" -message "Do you want to install nodejs?"
+	#
+	#Show-Step
+	#Start-Action -action Get-Mingw -title "Mingw" -message "Do you want to install mingw?"
+	#
+	#Show-Step
+	#Start-Action -action Get-Llvm -title "Llvm" -message "Do you want to install llvm?"
 
 	Show-Finish
 }

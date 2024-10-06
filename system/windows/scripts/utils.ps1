@@ -17,7 +17,7 @@ function Start-Action {
 	param (
 		$action,
 		$title,
-		$question,
+		$message,
 		$default = $YES.value
 	)
 
@@ -31,7 +31,7 @@ function Start-Action {
 		return
 	}
 
-	$choice = $Host.UI.PromptForChoice($title, $question, $choices, $default)
+	$choice = $Host.UI.PromptForChoice($title, $message, $choices, $default)
 
 	switch($choice) {
 		$YES.value {
