@@ -1,16 +1,14 @@
-. "$($PSScriptRoot).\scoop.ps1"
-. "$($PSScriptRoot).\git.ps1"
-. "$($PSScriptRoot).\neovim.ps1"
-. "$($PSScriptRoot).\windows-terminal.ps1"
-. "$($PSScriptRoot).\pwsh.ps1"
-. "$($PSScriptRoot).\nodejs.ps1"
-. "$($PSScriptRoot).\mingw.ps1"
-. "$($PSScriptRoot).\llvm.ps1"
-. "$($PSScriptRoot).\utils.ps1"
+. "$($PSScriptRoot).\src\scoop.ps1"
+. "$($PSScriptRoot).\src\git.ps1"
+. "$($PSScriptRoot).\src\neovim.ps1"
+. "$($PSScriptRoot).\src\windows-terminal.ps1"
+. "$($PSScriptRoot).\src\pwsh.ps1"
+. "$($PSScriptRoot).\src\nodejs.ps1"
+. "$($PSScriptRoot).\src\mingw.ps1"
+. "$($PSScriptRoot).\src\llvm.ps1"
+. "$($PSScriptRoot).\..\utils\script.ps1"
 
-
-
-function Start-Setup() {
+function Start-Dev() {
 	$YES = [Ref]0;
 	$YES_TO_ALL = [Ref]1;
 	$NO = [Ref]2;
@@ -46,6 +44,5 @@ function Start-Setup() {
 	Show-Finish
 }
 
-
-Start-Setup
+Start-Dev
 
