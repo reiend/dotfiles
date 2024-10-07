@@ -22,3 +22,5 @@
 . "$($PSScriptRoot)\windows-terminal\install"
 . "$($PSScriptRoot)\windows-terminal\set"
 
+. "$($PSScriptRoot)\terminal-icons\install"
+
