@@ -11,6 +11,8 @@
 
 . "$($PSScriptRoot)\mingw\install"
 
+. "$($PSScriptRoot)\ripgrep\install"
+
 . "$($PSScriptRoot)\neovim\install"
 . "$($PSScriptRoot)\neovim\set"
 

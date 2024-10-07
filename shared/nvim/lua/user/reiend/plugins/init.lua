@@ -22,6 +22,7 @@ require('lazy').setup {
     config = function()
       require('telescope').setup()
       local builtin = require 'telescope.builtin'
+
       vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
       vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
       vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
@@ -75,23 +76,23 @@ require('lazy').setup {
     config = function()
       require('catppuccin').setup {
         flavour = 'mocha', -- latte, frappe, macchiato, mocha
-        background = { -- :h background
+        background = {     -- :h background
           light = 'latte',
           dark = 'mocha',
         },
         transparent_background = true, -- disables setting the background color.
-        show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
-        term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
+        show_end_of_buffer = false,    -- shows the '~' characters after the end of buffers
+        term_colors = false,           -- sets terminal colors (e.g. `g:terminal_color_0`)
         dim_inactive = {
-          enabled = false, -- dims the background color of inactive window
+          enabled = false,             -- dims the background color of inactive window
           shade = 'dark',
-          percentage = 0.15, -- percentage of the shade to apply to the inactive window
+          percentage = 0.15,           -- percentage of the shade to apply to the inactive window
         },
-        no_italic = true, -- Force no italic
-        no_bold = true, -- Force no bold
-        no_underline = true, -- Force no underline
-        styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
-          comments = { 'italic' }, -- Change the style of comments
+        no_italic = true,              -- Force no italic
+        no_bold = true,                -- Force no bold
+        no_underline = true,           -- Force no underline
+        styles = {                     -- Handles the styles of general hi groups (see `:h highlight-args`):
+          comments = { 'italic' },     -- Change the style of comments
           conditionals = { 'italic' },
           loops = {},
           functions = {},
@@ -130,7 +131,7 @@ require('lazy').setup {
     priority = 1000,
     config = function()
       require('transparent').setup { -- Optional, you don't have to run setup.
-        groups = { -- table: default groups
+        groups = {                   -- table: default groups
           'Normal',
           'NormalNC',
           'Comment',
@@ -161,7 +162,7 @@ require('lazy').setup {
         extra_groups = {
           'NvimTreeNormal',
           'NvimTreeStatuslineNc',
-        }, -- table: additional groups that should be cleared
+        },                            -- table: additional groups that should be cleared
         exclude_groups = { 'Mason' }, -- table: groups you don't want to clear
       }
 
@@ -246,4 +247,3 @@ require('lazy').setup {
   --   end
   -- }
 }
-
