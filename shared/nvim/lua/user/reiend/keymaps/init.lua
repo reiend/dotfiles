@@ -43,10 +43,10 @@ keymap('v', '>', '>gv', { desc = 'Right text indentation' })
 
 -- Visual Block --
 -- Move text up and down
--- keymap('x', 'J', ":move '>+1<CR>gv-gv", { desc = 'Move text top' })
--- keymap('x', 'K', ":move '<-2<CR>gv-gv", { desc = 'Move text bottom' })
--- keymap('n', '<C-s>af', ':wa<CR>', { desc = 'Save all file' })
--- keymap('n', '<C-s>f', ':w<CR>', { desc = 'Save file' })
+keymap('x', 'J', ":move '>+1<CR>gv-gv", { desc = 'Move text top' })
+keymap('x', 'K', ":move '<-2<CR>gv-gv", { desc = 'Move text bottom' })
+keymap('n', '<C-s>af', ':wa<CR>', { desc = 'Save all file' })
+keymap('n', '<C-s>f', ':w<CR>', { desc = 'Save file' })
 
 -- Hacks from thePrimeagen
 keymap('n', 'J', 'mzJ`z', { desc = 'Wrap line with cursor on start line' })
