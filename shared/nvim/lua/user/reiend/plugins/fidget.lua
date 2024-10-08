@@ -1,7 +1,6 @@
 return {
   "j-hui/fidget.nvim",
   tag = "v1.0.0",
-  priority = 1000,
   config = function()
     require("fidget").setup {
       progress = {
