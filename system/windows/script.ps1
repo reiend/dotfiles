@@ -10,6 +10,8 @@
 
 . "$($PSScriptRoot)\ninja\install"
 
+. "$($PSScriptRoot)\cmake\install"
+
 . "$($PSScriptRoot)\mingw\install"
 
 . "$($PSScriptRoot)\ripgrep\install"
