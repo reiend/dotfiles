@@ -8,6 +8,8 @@
 
 . "$($PSScriptRoot)\llvm\install"
 
+. "$($PSScriptRoot)\ninja\install"
+
 . "$($PSScriptRoot)\mingw\install"
 
 . "$($PSScriptRoot)\ripgrep\install"
