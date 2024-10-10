@@ -1,3 +1,3 @@
 _: {
-  time.timeZone = "Asia/Manila";
+  time.timeZone = "Asia/Tokyo";
 }
