@@ -1,4 +1,1 @@
-_: {
-  time.timeZone = "Asia/Tokyo";
-  time.hardwareClockInLocalTime = true;
-}
+_: { time.timeZone = "Asia/Tokyo"; }

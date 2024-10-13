@@ -1,4 +1,1 @@
-_: {
-  time.timeZone = "Asia/Manila";
-  time.hardwareClockInLocalTime = true;
-}
+_: { time.timeZone = "Asia/Manila"; }
