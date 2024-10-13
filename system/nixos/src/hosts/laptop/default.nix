@@ -4,12 +4,14 @@ _: {
       ./boot.nix
       ./hardware.nix
       ./system.nix
-      ./services.nix
       ./security.nix
+      ./networking.nix
+      ./services.nix
       ./i18n.nix
+      ./programs
+      ./environments
       ./nixkpgs.nix
 
-      ./../../common/profiles/gui
       ./../../common/users/reiend
       ./../../common/time/asia-manila.nix
   ];

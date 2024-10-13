@@ -1,8 +1,4 @@
 _: {
-  imports = [
-    ./programs.nix
-  ];
-
   users = {
     users = {
       reiend = {

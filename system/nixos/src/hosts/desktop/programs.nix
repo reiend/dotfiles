@@ -6,6 +6,8 @@ _: {
     neovim = {
       enable = true;
     };
+    firefox = {
+      enable = true;
+    };
   };
 }
-

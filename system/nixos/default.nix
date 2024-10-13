@@ -7,9 +7,15 @@ in
     wsl = pkgs.writeShellScriptBin "/rebuild/wsl" ''
       sudo nixos-rebuild switch -I nixos-config=./src/hosts/wsl
     '';
+
     laptop = pkgs.writeShellScriptBin "rebuild/laptop" ''
       cp /etc/nixos/hardware-configuration.nix ./src/hosts/laptop/hardware-generated.nix
       sudo nixos-rebuild switch -I nixos-config=./src/hosts/laptop
+    '';
+
+    desktop = pkgs.writeShellScriptBin "rebuild/desktop" ''
+      cp /etc/nixos/hardware-configuration.nix ./src/hosts/desktop/hardware-generated.nix
+      sudo nixos-rebuild switch -I nixos-config=./src/hosts/desktop
     '';
   };
 }
