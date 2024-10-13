@@ -8,7 +8,7 @@ in
       sudo nixos-rebuild switch -I nixos-config=./src/hosts/wsl
     '';
     laptop = pkgs.writeShellScriptBin "rebuild/laptop" ''
-      sudo cp /etc/nixos/hardware-configuration.nix ./src/hosts/laptop/hardware-generated.nix
+      cp /etc/nixos/hardware-configuration.nix ./src/hosts/laptop/hardware-generated.nix
       sudo nixos-rebuild switch -I nixos-config=./src/hosts/laptop
     '';
   };
