@@ -11,6 +11,7 @@ function Install-LektonMonoNerdFont {
 	}
 
   Write-Host "installing lekton mono nerd font"
+  scoop bucket add nerd-fonts
   scoop install nerd-fonts/Lekton-NF-Mono
 }
 

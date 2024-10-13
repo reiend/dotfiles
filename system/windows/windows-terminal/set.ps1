@@ -2,7 +2,7 @@
 function Set-WindowsTerminal {
 	param(
 		$ConfigPathFile = "$($PSScriptRoot)\settings.json",
-		$ConfigRootPathFile = "$($home)\scoop\apps\windows-terminal\current\settings\settings.ps1"
+		$ConfigRootPathFile = "$($home)\scoop\apps\windows-terminal\current\settings\settings.json"
 	)
 
 	try {

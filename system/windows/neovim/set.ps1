@@ -6,7 +6,7 @@ function Set-Neovim {
 	)
 
 	try {
-		$path = (Get-Command pwsh -ErrorAction STOP).Path
+		$path = (Get-Command nvim -ErrorAction STOP).Path
 
 		if($path.GetType().Name -ne "String") {
 			return
@@ -21,7 +21,7 @@ function Set-Neovim {
 
 		Copy-Item -Path $ConfigPathFolder -Destination $ConfigRootPathFolder -Recurse
 	} catch {
-		Throw "powershell is not installed"
+		Throw "neovim is not installed"
 	} 
 }
 
