@@ -9,5 +9,10 @@ _: {
       pulse.enable = true;
       jack.enable = true;
     };
+
+    xserver.xkb = {
+      layout = "ph";
+      variant = "";
+    };
   };
 }
