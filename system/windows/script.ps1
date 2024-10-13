@@ -29,6 +29,9 @@
 
 . "$($PSScriptRoot)\lekton-mono-nerd-font\install"
 
+. "$($PSScriptRoot)\glaze-wm\install"
+. "$($PSScriptRoot)\glaze-wm\set"
+
 # build tools with editor
 . "$($PSScriptRoot)\visual-studio-community\install"
 
