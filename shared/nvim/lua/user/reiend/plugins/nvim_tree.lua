@@ -18,9 +18,7 @@ return {
           quit_on_open = true,
         },
       },
-      view = {
-        width = 30,
-      },
+      view = { width = 30 },
       renderer = {
         group_empty = true,
         root_folder_label = false,
