@@ -4,7 +4,7 @@ function Install-GlazeWM {
 		$path = (Get-Command glazewm -ErrorAction STOP).Path
 	} catch {
     Write-Host "installing glaze-wm"
-		scoop install main/glazewm
+		scoop install extras/glazewm
 	} 
 }
 

@@ -2,7 +2,7 @@
 function Set-GlazeWM {
 	param(
 		$ConfigPathFile = "$($PSScriptRoot)\config.yaml",
-		$ConfigRootPathFile = "$($home)\.glaze-wm\config.yaml"
+		$ConfigRootPathFile = "$($home)\.glaze-wm\config.yaml",
 		$ConfigRootPathFolder = "$($home)\.glaze-wm"
 	)
 
@@ -17,13 +17,13 @@ function Set-GlazeWM {
       mkdir $ConfigRootPathFolder
 		}
 
-		if(Test-Path -Path $ConfigRootPathFile) {
+		if((Test-Path -Path $ConfigRootPathFile -PathType leaf)) {
 			Remove-Item  $ConfigRootPathFile -Recurse -Force
 			Copy-Item -Path $ConfigPathFile -Destination $ConfigRootPathFile -Recurse
 			return
 		}
 
-		Copy-Item -Path $ConfigPathFile -Destination $ConfigRootPathFile -Recurse
+		Copy-Item -Path $ConfigPathFile -Destination $ConfigRootPathFolder -Recurse
 	} catch {
 		Throw "glazewm is not installed"
 	} 
