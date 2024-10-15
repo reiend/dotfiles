@@ -12,6 +12,7 @@
         (nvim-treesitter.withPlugins (p: [
           p.lua
           p.nix
+          p.cmake
         ]))
         nvim-lspconfig
         nvim-cmp

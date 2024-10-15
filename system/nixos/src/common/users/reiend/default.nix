@@ -20,8 +20,9 @@
     stylua
     lua-language-server
     luajitPackages.luacheck
-
     nil
+    clang_18
+    clang-tools
     ripgrep
     nixfmt-rfc-style
     nodePackages_latest.typescript-language-server
