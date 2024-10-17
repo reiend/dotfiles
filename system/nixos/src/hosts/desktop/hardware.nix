@@ -1,7 +1,8 @@
-
 _: {
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-  hardware.pulseaudio.enable = false; 
-
+  hardware = {
+    bluetooth.enable = true;
+    bluetooth.powerOnBoot = true;
+    pulseaudio.enable = false;
+    opengl.enable = true;
+  };
 }

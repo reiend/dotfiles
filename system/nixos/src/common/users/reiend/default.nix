@@ -26,6 +26,8 @@
     ripgrep
     nixfmt-rfc-style
     nodePackages_latest.typescript-language-server
+
+    libGL
   ];
 
   home-manager.useGlobalPkgs = true;
