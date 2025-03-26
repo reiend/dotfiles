@@ -14,6 +14,8 @@
 
 . "$($PSScriptRoot)\mingw\install"
 
+. "$($PSScriptRoot)\rustup\install"
+
 . "$($PSScriptRoot)\ripgrep\install"
 
 . "$($PSScriptRoot)\powershell\install"
@@ -28,6 +30,8 @@
 . "$($PSScriptRoot)\terminal-icons\install"
 
 . "$($PSScriptRoot)\lekton-mono-nerd-font\install"
+
+. "$($PSScriptRoot)\zebar\install"
 
 . "$($PSScriptRoot)\glaze-wm\install"
 . "$($PSScriptRoot)\glaze-wm\set"
