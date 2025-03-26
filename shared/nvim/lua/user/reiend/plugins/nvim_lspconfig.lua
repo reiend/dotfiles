@@ -9,7 +9,7 @@ return {
       virtual_text = true,
       float = {
         -- header = false,
-        border = 'rounded',
+        -- border = 'rounded',
         focusable = true,
       },
     }
@@ -27,11 +27,11 @@ return {
         -- Enable completion triggered by <c-x><c-o>
         vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
-        vim.lsp.handlers['textDocument/hover'] =
-          vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
-
-        vim.lsp.handlers['textDocument/signatureHelp'] =
-          vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
+        -- vim.lsp.handlers['textDocument/hover'] =
+        --     vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
+        --
+        -- vim.lsp.handlers['textDocument/signatureHelp'] =
+        --     vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
 
         -- Buffer local mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
