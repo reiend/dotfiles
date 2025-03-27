@@ -3,7 +3,7 @@ function Install-IosevkaNerdFontMono {
   # load fonts in powershell below v7
   [System.Reflection.Assembly]::LoadWithPartialName("System.Drawing") | Out-Null
 
-	$FONT = "Iosevka Nerd Font Mono"
+	$FONT = "Iosevka NFM"
 	$Fonts = [System.Drawing.FontFamily]::Families
 
 	if(($Fonts | where {$_.Name -eq $FONT})) {
