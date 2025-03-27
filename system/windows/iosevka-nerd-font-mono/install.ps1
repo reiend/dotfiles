@@ -1,19 +1,19 @@
 
-function Install-LektonMonoNerdFont {
+function Install-IosevkaNerdFontMono {
   # load fonts in powershell below v7
   [System.Reflection.Assembly]::LoadWithPartialName("System.Drawing") | Out-Null
 
-	$FONT = "Lekton Nerd Font Mono"
+	$FONT = "Iosevka Nerd Font Mono"
 	$Fonts = [System.Drawing.FontFamily]::Families
 
 	if(($Fonts | where {$_.Name -eq $FONT})) {
 		return
 	}
 
-  Write-Host "installing lekton mono nerd font"
+  Write-Host "installing iosevka nerd font mono"
   scoop bucket add nerd-fonts
-  scoop install nerd-fonts/Lekton-NF-Mono
+  scoop install nerd-fonts/Iosevka-NF-Mono
 }
 
-Install-LektonMonoNerdFont
+Install-IosevkaNerdFontMono
 

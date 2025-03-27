@@ -29,15 +29,15 @@
 
 . "$($PSScriptRoot)\terminal-icons\install"
 
-. "$($PSScriptRoot)\lekton-mono-nerd-font\install"
+. "$($PSScriptRoot)\iosevka-nerd-font-mono\install"
 
 . "$($PSScriptRoot)\zebar\install"
 
 . "$($PSScriptRoot)\glaze-wm\install"
 . "$($PSScriptRoot)\glaze-wm\set"
 
-# build tools with editor
-#. "$($PSScriptRoot)\visual-studio-community\install"
+ #build tools with editor
+. "$($PSScriptRoot)\visual-studio-community\install"
 
 # build tools only
 #. "$($PSScriptRoot)\visual-studio-build-tools\install"
