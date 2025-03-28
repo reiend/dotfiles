@@ -26,6 +26,7 @@ local options = {
   laststatus = 3,
   scrolloff = 8,
   clipboard = 'unnamedplus',
+  shell = 'pwsh'
   -- colorcolumn = "80"
 }
 
