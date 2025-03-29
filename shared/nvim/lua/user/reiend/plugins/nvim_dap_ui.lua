@@ -6,44 +6,25 @@ return {
   },
   config = function()
     local dap = require 'dap'
-    dap.adapters.lldb = {
-      type = 'executable',
 
-      -- adjust as needed, must be absolute path
-      command = 'lldb-vscode',
-      name = 'lldb',
+    dap.adapters.codelldb = {
+      type = 'executable',
+      command = 'codelldb',
+      name = 'codelldb',
     }
 
     dap.configurations.cpp = {
       {
-        name = 'Launch',
-        type = 'lldb',
+        name = 'codelldb',
+        type = 'codelldb',
         request = 'launch',
         program = function()
-          return vim.fn.input(
-            'Path to executable: ',
-            vim.fn.getcwd() .. '/',
-            'file'
-          )
+          return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
         end,
         cwd = '${workspaceFolder}',
         stopOnEntry = false,
         args = {},
-
-        -- 💀
-        -- if you change `runInTerminal` to true, you might need to change
-        -- the yama/ptrace_scope setting:
-        --
-        --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
-        --
-        -- Otherwise you might get the following error:
-        --
-        --    Error on launch: Failed to attach to the target process
-        --
-        -- But you should be aware of the implications:
-        -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
-        -- runInTerminal = false,
-      },
+      }
     }
 
     vim.keymap.set('n', '<F5>', function()
@@ -58,17 +39,22 @@ return {
     vim.keymap.set('n', '<F12>', function()
       require('dap').step_out()
     end)
-    vim.keymap.set('n', '<Leader>b', function()
+    vim.keymap.set('n', '<Leader>dbt', function()
       require('dap').toggle_breakpoint()
     end)
-    vim.keymap.set('n', '<Leader>B', function()
+
+    vim.keymap.set('n', '<Leader>dbc', function()
+      require('dap').clear_breakpoints()
+    end)
+
+    vim.keymap.set('n', '<Leader>db', function()
       require('dap').set_breakpoint()
     end)
-    vim.keymap.set('n', '<Leader>lp', function()
+    vim.keymap.set('n', '<Leader>dbl', function()
       require('dap').set_breakpoint(
         nil,
         nil,
-        vim.fn.input 'Log point message: '
+        vim.fn.input 'log: '
       )
     end)
     vim.keymap.set('n', '<Leader>dr', function()
@@ -95,6 +81,18 @@ return {
     local dapui = require('dapui')
 
     dapui.setup();
+
+    vim.keymap.set('n', '<Leader>dc', function()
+      dapui.close()
+    end)
+
+    vim.keymap.set('n', '<Leader>dc', function()
+      dapui.close()
+    end)
+
+    vim.keymap.set('n', '<Leader>dt', function()
+      dapui.toggle()
+    end)
 
     dap.listeners.before.attach.dapui_config = function()
       dapui.open()
