@@ -51,28 +51,28 @@ return {
     },
     completion = {
       menu = {
+        border = "rounded",
         auto_show = false,
-        -- border = "rounded",
       },
       documentation = {
         auto_show = false,
         window = {
-          -- border = "rounded",
-        }
+          border = "rounded",
+        },
       },
     },
     snippets = { preset = 'default' },
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
     },
-    fuzzy = { implementation = "prefer_rust_with_warning" },
+    fuzzy = { implementation = 'prefer_rust_with_warning' },
     cmdline = {
       completion = {
         menu = {
-          auto_show = false
-        }
-      }
-    }
+          auto_show = false,
+        },
+      },
+    },
   },
-  opts_extend = { "sources.default" },
+  opts_extend = { 'sources.default' },
 }

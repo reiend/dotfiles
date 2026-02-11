@@ -5,7 +5,6 @@ return {
     require('transparent').setup {
       groups = {
         'Normal',
-        'NormalFloat',
         'NormalNC',
         'Comment',
         'Constant',
@@ -32,11 +31,9 @@ return {
         'EndOfBuffer',
       },
       extra_groups = {
-        'TelescopeNormal',
-        'TelescopeBorder',
-        'TelescopeSelection',
-        'BlinkCmpDocBorder',
+      },
+      exclude_groups = {
       },
     }
-  end
+  end,
 }
