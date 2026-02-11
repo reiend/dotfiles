@@ -43,12 +43,6 @@ M.setup = function()
       require(plugin_path .. 'indent_blankline'),
       require(plugin_path .. 'nvim_lint'),
       require(plugin_path .. 'nvim_dap_ui'),
-
-      -- require(plugin_path .. 'lazydev'),
-      -- require(plugin_path .. 'luvit_meta'),
-
-      -- require 'user.reiend.plugins.neodev',
-      -- require(plugin_path .. 'comment'),
     },
   }
 end

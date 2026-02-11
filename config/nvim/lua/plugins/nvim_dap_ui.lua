@@ -19,12 +19,16 @@ return {
         type = 'codelldb',
         request = 'launch',
         program = function()
-          return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+          return vim.fn.input(
+            'Path to executable: ',
+            vim.fn.getcwd() .. '/',
+            'file'
+          )
         end,
         cwd = '${workspaceFolder}',
         stopOnEntry = false,
         args = {},
-      }
+      },
     }
 
     vim.keymap.set('n', '<F5>', function()
@@ -51,11 +55,7 @@ return {
       require('dap').set_breakpoint()
     end)
     vim.keymap.set('n', '<leader>dbl', function()
-      require('dap').set_breakpoint(
-        nil,
-        nil,
-        vim.fn.input 'log: '
-      )
+      require('dap').set_breakpoint(nil, nil, vim.fn.input 'log: ')
     end)
     vim.keymap.set('n', '<leader>dr', function()
       require('dap').repl.open()
@@ -78,9 +78,9 @@ return {
       widgets.centered_float(widgets.scopes)
     end)
 
-    local dapui = require('dapui')
+    local dapui = require 'dapui'
 
-    dapui.setup();
+    dapui.setup()
 
     vim.keymap.set('n', '<leader>dc', function()
       dapui.close()
@@ -106,5 +106,5 @@ return {
     dap.listeners.before.event_exited.dapui_config = function()
       dapui.close()
     end
-  end
+  end,
 }

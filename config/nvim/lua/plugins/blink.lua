@@ -51,13 +51,13 @@ return {
     },
     completion = {
       menu = {
-        border = "rounded",
+        border = 'rounded',
         auto_show = false,
       },
       documentation = {
         auto_show = false,
         window = {
-          border = "rounded",
+          border = 'rounded',
         },
       },
     },

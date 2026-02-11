@@ -12,4 +12,3 @@ return {
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
   end,
 }
-
