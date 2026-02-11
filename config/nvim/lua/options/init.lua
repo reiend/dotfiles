@@ -26,6 +26,7 @@ local options = {
   laststatus = 3,                  -- global status line
   scrolloff = 8,
   clipboard = 'unnamed',
+  winborder = 'rounded',
   -- shell = 'pwsh',
   -- colorcolumn = "80"
 }

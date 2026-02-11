@@ -6,6 +6,9 @@ return {
       groups = {
         'Normal',
         'NormalNC',
+        'NormalFloat',
+        'Pmenu',
+        'FloatBorder',
         'Comment',
         'Constant',
         'Special',
@@ -31,8 +34,10 @@ return {
         'EndOfBuffer',
       },
       extra_groups = {
+        'BlinkCmpMenuBorder',
       },
       exclude_groups = {
+        'CursorLine',
       },
     }
   end,
