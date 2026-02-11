@@ -12,6 +12,7 @@ powershell -file ".\app\glaze-wm.ps1"
 powershell -file ".\app\terminal-icons.ps1"
 powershell -file ".\app\pwsh.ps1"
 powershell -file ".\app\windows-terminal.ps1"
+powershell -file ".\app\ripgrep.ps1"
 
 REM GUI APPS
 powershell -file ".\app\blender.ps1"
