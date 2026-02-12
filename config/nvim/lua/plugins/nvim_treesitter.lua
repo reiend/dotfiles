@@ -2,7 +2,10 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     lazy = false,
-    tag = 'v0.10.0',
     build = ':TSUpdate',
+    config = function()
+      vim.env.CC = 'gcc'
+      require('nvim-treesitter').install { 'c_sharp', 'java' }
+    end,
   },
 }
