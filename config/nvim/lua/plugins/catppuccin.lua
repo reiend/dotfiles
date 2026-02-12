@@ -65,8 +65,6 @@ return {
         },
       },
     }
-    -- vim.cmd.colorscheme 'catppuccin-mocha'
-    -- vim.cmd.colorscheme 'vscode'
-    vim.cmd.colorscheme 'everforest'
+    vim.cmd.colorscheme 'catppuccin-mocha'
   end,
 }
