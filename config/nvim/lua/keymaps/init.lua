@@ -10,11 +10,9 @@ keymap({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 keymap('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
--- window navigation
-keymap('n', '<C-h>', '<C-w>h', { desc = 'Move to left window' })
-keymap('n', '<C-l>', '<C-w>l', { desc = 'Move to right window' })
-keymap('n', '<C-j>', '<C-w>j', { desc = 'Move to bottom window' })
-keymap('n', '<C-k>', '<C-w>k', { desc = 'Move to top window' })
+-- quickfix navigation
+keymap('n', '<C-j>', '<CMD>cnext<CR>', { desc = 'Move to next quickfix' })
+keymap('n', '<C-k>', '<CMD>cprev<CR>', { desc = 'Move to previous quickfix' })
 
 -- rezing windows
 keymap('n', '<A-k>', ':resize +6<CR>', { desc = 'resize window bottom' })
