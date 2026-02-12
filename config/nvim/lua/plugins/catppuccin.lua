@@ -18,10 +18,10 @@ return {
       },
       no_italic = true,
       no_bold = true,
-      no_underline = true,
+      no_underline = false,
       styles = {
         comments = { 'italic' },
-        conditionals = { 'italic' },
+        conditionals = {},
         loops = {},
         functions = {},
         keywords = {},
@@ -54,8 +54,19 @@ return {
           indentscope_color = '',
         },
       },
-    }
 
-    vim.cmd.colorscheme 'catppuccin-mocha'
+      lsp_styles = {
+        underlines = {
+          errors = { 'undercurl' },
+          hints = { 'undercurl' },
+          warnings = { 'undercurl' },
+          information = { 'undercurl' },
+          ok = { 'undercurl' },
+        },
+      },
+    }
+    -- vim.cmd.colorscheme 'catppuccin-mocha'
+    -- vim.cmd.colorscheme 'vscode'
+    vim.cmd.colorscheme 'everforest'
   end,
 }

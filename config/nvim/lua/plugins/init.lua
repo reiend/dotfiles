@@ -25,24 +25,38 @@ M.setup = function()
     install = { colorscheme = { 'catppuccin' } },
     checker = { enabled = false },
     spec = {
-      require(plugin_path .. 'treesitter'),
+      -- COLORSCHEME PLUGINS
       require(plugin_path .. 'catppuccin'),
-      require(plugin_path .. 'transparent'),
-      require(plugin_path .. 'telescope'),
-      require(plugin_path .. 'lualine'),
-      require(plugin_path .. 'oil'),
+      require(plugin_path .. 'everforest'),
+      require(plugin_path .. 'vscode'),
+
+      -- QOL PLUGINS
+      require(plugin_path .. 'treesitter'),
+      require(plugin_path .. 'indent_blankline'),
+      require(plugin_path .. 'gitsigns'),
       require(plugin_path .. 'oil_git'),
       require(plugin_path .. 'oil_lsp_diagnostics'),
+
+      -- FILE EXPLORER PLUGINS
+      require(plugin_path .. 'oil'),
+
       require(plugin_path .. 'blink'),
-      require(plugin_path .. 'nvim_lspconfig'),
+
+      -- DEV PLUGINS
       require(plugin_path .. 'mason'),
-      require(plugin_path .. 'roslyn'),
-      require(plugin_path .. 'fidget'),
+      require(plugin_path .. 'nvim_lspconfig'),
       require(plugin_path .. 'conform'),
-      require(plugin_path .. 'gitsigns'),
-      require(plugin_path .. 'indent_blankline'),
       require(plugin_path .. 'nvim_lint'),
       require(plugin_path .. 'nvim_dap_ui'),
+      require(plugin_path .. 'roslyn'),
+
+      -- STATUS LINE PLUGINS
+      require(plugin_path .. 'lualine'),
+      require(plugin_path .. 'fidget'),
+
+      -- UTILS PLUGINS
+      require(plugin_path .. 'transparent'),
+      require(plugin_path .. 'telescope'),
     },
   }
 end
