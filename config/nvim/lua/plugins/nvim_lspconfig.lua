@@ -14,17 +14,15 @@ return {
     vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
     vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
+    vim.keymap.set('n', '<C-f>', function()
+      vim.diagnostic.setqflist()
+    end)
+
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('UserLspConfig', {}),
       callback = function(ev)
         -- Enable completion triggered by <c-x><c-o>
         vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
-
-        -- vim.lsp.handlers['textDocument/hover'] =
-        --     vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
-        --
-        -- vim.lsp.handlers['textDocument/signatureHelp'] =
-        --     vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
 
         local opts = { buffer = ev.buf }
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
