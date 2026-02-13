@@ -34,7 +34,11 @@
             "font": 
             {
                 "face": "Iosevka Nerd Font Mono",
-                "size": 12
+                "size": 12,
+                "features": {
+                    "liga": 0,
+                    "calt": 0
+                },
             },
             "hidden": false,
             "opacity": 60,
