@@ -34,3 +34,7 @@ if(-not (Test-Path "$($Home)\scoop\buckets\nerd-fonts")) {
 if(-not (Test-Path "$($Home)\scoop\buckets\extras")) {
   scoop bucket add extras
 }
+
+if(-not (Test-Path "$($Home)\scoop\buckets\java")) {
+  scoop bucket add java
+}
