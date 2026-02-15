@@ -7,21 +7,11 @@ return {
     end
 
     local toggle_quickfix = function()
-      local bufs = vim.api.nvim_list_bufs()
-      local has_quickfix = #vim.fn.getqflist() > 0
-
-      local has_buf_quickfix = function(buf)
-        return vim.api.nvim_buf_get_option(buf, 'buftype') == 'quickfix'
+      if vim.bo.filetype == 'qf' then
+        vim.cmd [[cclose]]
+      else
+        vim.cmd [[copen]]
       end
-
-      for _, buf in pairs(bufs) do
-        if has_quickfix and has_buf_quickfix(buf) then
-          vim.api.nvim_buf_delete(buf, { force = false, unload = false })
-          return
-        end
-      end
-
-      vim.diagnostic.setqflist()
     end
 
     vim.diagnostic.config {
@@ -36,7 +26,7 @@ return {
         local opts = { buffer = event.buf }
 
         vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
-        vim.keymap.set('n', '<space>qf', toggle_quickfix)
+        vim.keymap.set('n', '<C-f>', toggle_quickfix)
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
