@@ -19,6 +19,7 @@ return {
         nix = { 'nixfmt' },
         lua = { 'stylua' },
         cs = { 'csharpier' },
+        java = { 'google-java-format' },
       },
       -- format_on_save = format_config,
     }
