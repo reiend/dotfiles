@@ -3,6 +3,7 @@ return {
   dependencies = {
     'williamboman/mason-lspconfig.nvim',
     'neovim/nvim-lspconfig',
+    'Saghen/blink.cmp',
   },
   config = function()
     require('mason').setup {
@@ -12,12 +13,16 @@ return {
       },
     }
 
-    local mason = require 'mason'
-    mason.setup {
+    require('mason').setup {
       registries = {
         'github:mason-org/mason-registry',
         'github:Crashdummyy/mason-registry',
       },
+    }
+
+    require('mason-lspconfig').setup {
+      ensure_installed = { 'lua_ls' },
+      automatic_enable = false,
     }
   end,
 }
