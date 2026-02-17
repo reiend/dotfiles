@@ -1,5 +1,5 @@
 return {
-  cmd = 'java',
+  cmd = 'q',
   filetypes = 'java',
   root_markers = {
     { 'mvnw', 'gradlew', 'settings.gradle', 'settings.gradle.kts', '.git' },

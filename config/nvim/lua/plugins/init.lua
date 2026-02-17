@@ -47,14 +47,12 @@ M.setup = function()
       -- FILE EXPLORER PLUGINS
       require(plugin_path .. 'oil'),
 
-      require(plugin_path .. 'blink'),
-
       -- DEV PLUGINS
-      require(plugin_path .. 'mason'),
       require(plugin_path .. 'nvim_lspconfig'),
       require(plugin_path .. 'conform'),
       require(plugin_path .. 'nvim_lint'),
       require(plugin_path .. 'nvim_dap_ui'),
+      require(plugin_path .. 'nvim_jdtls'),
       require(plugin_path .. 'roslyn'),
 
       -- STATUS LINE PLUGINS

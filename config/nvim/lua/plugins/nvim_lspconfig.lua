@@ -1,6 +1,9 @@
 return {
   'neovim/nvim-lspconfig',
-  lazy = true,
+  dependencies = {
+    require 'plugins.mason',
+    require 'plugins.blink',
+  },
   config = function()
     local lsp_format = function()
       vim.lsp.buf.format { async = true }
@@ -37,5 +40,25 @@ return {
         vim.keymap.set('n', '<leader>f<CR>', lsp_format, opts)
       end,
     })
+
+    local mason_lspconfig = require 'mason-lspconfig'
+    local blink = require 'blink.cmp'
+
+    mason_lspconfig.setup {
+      ensure_installed = { 'lua_ls' },
+      automatic_enable = false,
+    }
+
+    for _, name in ipairs(mason_lspconfig.get_installed_servers()) do
+      vim.lsp.config(name, {
+        capabilities = vim.tbl_deep_extend(
+          'force',
+          {},
+          blink.get_lsp_capabilities()
+        ),
+      })
+
+      vim.lsp.enable(name)
+    end
   end,
 }

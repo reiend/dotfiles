@@ -3,8 +3,6 @@ return {
   dependencies = {
     'williamboman/mason-lspconfig.nvim',
     'neovim/nvim-lspconfig',
-    -- 'hrsh7th/cmp-nvim-lsp',
-    -- 'creativenull/efmls-configs-nvim',
   },
   config = function()
     require('mason').setup {
@@ -13,6 +11,13 @@ return {
         'github:Crashdummyy/mason-registry',
       },
     }
-    require('mason-lspconfig').setup()
+
+    local mason = require 'mason'
+    mason.setup {
+      registries = {
+        'github:mason-org/mason-registry',
+        'github:Crashdummyy/mason-registry',
+      },
+    }
   end,
 }
