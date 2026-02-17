@@ -49,6 +49,8 @@ M.setup = function()
 
       -- DEV PLUGINS
       require(plugin_path .. 'nvim_lspconfig'),
+      require(plugin_path .. 'mason'),
+      require(plugin_path .. 'blink'),
       require(plugin_path .. 'conform'),
       require(plugin_path .. 'nvim_lint'),
       require(plugin_path .. 'nvim_dap_ui'),
