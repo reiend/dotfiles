@@ -61,10 +61,18 @@ return {
 
       if name == 'jdtls' then
         local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+
         local root_dir = vim.fs.root(
           0,
           { 'gradlew', '.git', 'mvnw', 'build.gradle', 'pom.xml' }
-        ) or vim.fs.getcwd()
+        ) or vim.fn.getcwd()
+
+        local bundles = {
+          vim.fn.expand(
+            vim.fn.stdpath 'data'
+              .. '/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar'
+          ),
+        }
 
         local get_equinox_launcher_path = function()
           return vim.fn.expand(
@@ -121,7 +129,7 @@ return {
                 java = {},
               },
               init_options = {
-                bundles = {},
+                bundles = bundles,
               },
             }
           end,
