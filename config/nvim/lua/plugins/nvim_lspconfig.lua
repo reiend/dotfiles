@@ -60,6 +60,7 @@ return {
       }
 
       if name == 'jdtls' then
+        local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
         local root_dir = vim.fs.root(
           0,
           { 'gradlew', '.git', 'mvnw', 'build.gradle', 'pom.xml' }
@@ -68,8 +69,7 @@ return {
         local get_equinox_launcher_path = function()
           return vim.fn.expand(
             vim.fn.stdpath 'data'
-              -- .. '/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar'
-              .. '/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.7.100.v20251111-0406.jar'
+              .. '/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_*.jar'
           )
         end
 
@@ -86,7 +86,9 @@ return {
         end
 
         local get_data_path = function()
-          return vim.fn.expand((root_dir or '') .. '/.cache/jdtls/data')
+          return vim.fn.expand(
+            (vim.fn.stdpath 'cache') .. '/jdtls/workspace/' .. project_name
+          )
         end
 
         vim.api.nvim_create_autocmd('FileType', {
@@ -114,23 +116,10 @@ return {
                 '-data',
                 get_data_path(),
               },
-
               root_dir = root_dir,
-
-              -- Here you can configure eclipse.jdt.ls specific settings
-              -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
-              -- for a list of options
               settings = {
                 java = {},
               },
-
-              -- This sets the `initializationOptions` sent to the language server
-              -- If you plan on using additional eclipse.jdt.ls plugins like java-debug
-              -- you'll need to set the `bundles`
-              --
-              -- See https://codeberg.org/mfussenegger/nvim-jdtls#java-debug-installation
-              --
-              -- If you don't plan on any eclipse.jdt.ls plugins you can remove this
               init_options = {
                 bundles = {},
               },
