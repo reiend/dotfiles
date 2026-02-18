@@ -1,8 +1,8 @@
 return {
-  'rcarriga/nvim-dap-ui',
+  'mfussenegger/nvim-dap',
   dependencies = {
-    'mfussenegger/nvim-dap',
     'nvim-neotest/nvim-nio',
+    'igorlfs/nvim-dap-view',
   },
   config = function()
     local dap = require 'dap'
@@ -28,16 +28,6 @@ return {
         cwd = '${workspaceFolder}',
         stopOnEntry = false,
         args = {},
-      },
-    }
-
-    dap.configurations.java = {
-      {
-        type = 'java',
-        request = 'attach',
-        name = 'Debug (Attach) - Remote',
-        hostName = '127.0.0.1',
-        port = 1000,
       },
     }
 
@@ -88,33 +78,37 @@ return {
       widgets.centered_float(widgets.scopes)
     end)
 
-    local dapui = require 'dapui'
+    local dap_view = require 'dap-view'
 
-    dapui.setup()
+    dap_view.setup {
+      winbar = {
+        sections = {
+          'watches',
+          'scopes',
+          'exceptions',
+          'breakpoints',
+          'threads',
+          'repl',
+          'console',
+        },
+      },
+    }
 
-    vim.keymap.set('n', '<leader>dc', function()
-      dapui.close()
-    end)
-
-    vim.keymap.set('n', '<leader>dc', function()
-      dapui.close()
-    end)
-
-    vim.keymap.set('n', '<leader>dt', function()
-      dapui.toggle()
+    vim.keymap.set('n', '<leader>dvt', function()
+      vim.cmd 'DapViewToggle'
     end)
 
     dap.listeners.before.attach.dapui_config = function()
-      dapui.open()
+      vim.cmd 'DapViewOpen'
     end
     dap.listeners.before.launch.dapui_config = function()
-      dapui.open()
+      vim.cmd 'DapViewOpen'
     end
     dap.listeners.before.event_terminated.dapui_config = function()
-      dapui.close()
+      vim.cmd 'DapViewClose'
     end
     dap.listeners.before.event_exited.dapui_config = function()
-      dapui.close()
+      vim.cmd 'DapViewClose'
     end
   end,
 }
