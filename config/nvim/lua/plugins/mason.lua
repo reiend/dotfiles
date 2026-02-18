@@ -3,16 +3,8 @@ return {
   dependencies = {
     'williamboman/mason-lspconfig.nvim',
     'neovim/nvim-lspconfig',
-    'Saghen/blink.cmp',
   },
   config = function()
-    require('mason').setup {
-      registries = {
-        'github:mason-org/mason-registry',
-        'github:Crashdummyy/mason-registry',
-      },
-    }
-
     require('mason').setup {
       registries = {
         'github:mason-org/mason-registry',
