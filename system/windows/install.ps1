@@ -12,7 +12,6 @@
 . "$($PSScriptRoot)\app\windows-terminal.ps1"
 . "$($PSScriptRoot)\app\ripgrep.ps1"
 . "$($PSScriptRoot)\app\llvm.ps1"
-. "$($PSScriptRoot)\app\openjdk.ps1"
 . "$($PSScriptRoot)\app\python.ps1"
 . "$($PSScriptRoot)\app\mingw.ps1"
 . "$($PSScriptRoot)\app\tree-sitter.ps1"
