@@ -77,7 +77,7 @@ return {
               capabilities = {},
               name = 'jdtls',
               cmd = {
-                vim.fn.expand '~/scoop/apps/openjdk/current/bin/java',
+                vim.fn.expand '~/scoop/apps/jabba/current/jdk/openjdk@25.0.2/bin/java',
                 '-Declipse.application=org.eclipse.jdt.ls.core.id1',
                 '-Dosgi.bundles.defaultStartLevel=4',
                 '-Declipse.product=org.eclipse.jdt.ls.core.product',
@@ -113,15 +113,15 @@ return {
                     runtimes = {
                       {
                         name = 'JavaSE-17',
-                        path = vim.fn.expand '~/scoop/apps/openjdk17/current',
+                        path = vim.fn.expand '~/scoop/apps/jabba/current/jdk/openjdk@17.0.2',
                       },
                       {
                         name = 'JavaSE-21',
-                        path = vim.fn.expand '~/scoop/apps/openjdk21/current',
+                        path = vim.fn.expand '~/scoop/apps/jabba/current/jdk/openjdk@21.0.2',
                       },
                       {
                         name = 'JavaSE-25',
-                        path = vim.fn.expand '~/scoop/apps/openjdk/current',
+                        path = vim.fn.expand '~/scoop/apps/jabba/current/jdk/openjdk@25.0.2',
                       },
                     },
                   },
