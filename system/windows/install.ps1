@@ -19,6 +19,7 @@
 . "$($PSScriptRoot)\app\maven.ps1"
 . "$($PSScriptRoot)\app\springboot.ps1"
 . "$($PSScriptRoot)\app\jabba.ps1"
+. "$($PSScriptRoot)\app\gitea.ps1"
 
 # GUI APPS
 . "$($PSScriptRoot)\app\blender.ps1"

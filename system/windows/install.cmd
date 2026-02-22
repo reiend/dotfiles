@@ -23,6 +23,7 @@ powershell -File "%INSTALL_PATH%app\gradle.ps1"
 powershell -File "%INSTALL_PATH%app\maven.ps1"
 powershell -File "%INSTALL_PATH%app\springboot.ps1"
 powershell -File "%INSTALL_PATH%app\jabba.ps1"
+powershell -File "%INSTALL_PATH%app\gitea.ps1"
 
 REM GUI APPS
 powershell -File "%INSTALL_PATH%app\blender.ps1"
