@@ -16,6 +16,10 @@
 . "$($PSScriptRoot)\app\python.ps1"
 . "$($PSScriptRoot)\app\mingw.ps1"
 . "$($PSScriptRoot)\app\tree-sitter.ps1"
+. "$($PSScriptRoot)\app\gradle.ps1"
+. "$($PSScriptRoot)\app\maven.ps1"
+. "$($PSScriptRoot)\app\springboot.ps1"
+. "$($PSScriptRoot)\app\jabba.ps1"
 
 # GUI APPS
 . "$($PSScriptRoot)\app\blender.ps1"
